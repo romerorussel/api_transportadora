@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartRequest;
 
+import br.com.apirest.transportadora.datasource.model.FiltroPesquisa;
 import br.com.apirest.transportadora.datasource.model.Transportadora;
 import br.com.apirest.transportadora.repository.TransportadoraRepository;
 
@@ -101,5 +102,14 @@ public class TransportadoraController {
 			response = "{\"success\":0}";
 		}
 		return response;
+	}
+	
+	@PostMapping(path = "/transportadora/pesquisar")
+	public List<Transportadora> pesquisaFiltro(
+		@RequestBody FiltroPesquisa filtro
+		){
+			List<Transportadora> listaTransportadoras = transportadoraRepository.findByNomeContainingOrUfOrCidadeOrModal(filtro.getNome(), filtro.getUf(), filtro.getCidade(), filtro.getModal());
+
+			return listaTransportadoras;
 	}
 }
