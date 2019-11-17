@@ -34,6 +34,12 @@ public class Transportadora implements Serializable {
 	@Column(name = "telefone")
 	private String telefone;
 	
+	@Column(name = "whatsapp")
+	private String whatsapp;
+	
+	@Column(name = "celular")
+	private String celular;
+	
 	@Column(name = "modal")
 	private String modal;
 	
@@ -52,6 +58,44 @@ public class Transportadora implements Serializable {
 	@Column(name = "uf")
 	private String uf;
 	
+	@Column(name = "cep")
+	private String cep;
+	
+	@Column(name = "logo")
+	private String logo;
+	
+	public String getWhatsapp() {
+		return whatsapp;
+	}
+
+	public void setWhatsapp(String whatsapp) {
+		this.whatsapp = whatsapp;
+	}
+
+	public String getCelular() {
+		return celular;
+	}
+
+	public void setCelular(String celular) {
+		this.celular = celular;
+	}
+
+	public String getLogo() {
+		return logo;
+	}
+
+	public void setLogo(String logo) {
+		this.logo = logo;
+	}
+
+	public String getCep() {
+		return cep;
+	}
+
+	public void setCep(String cep) {
+		this.cep = cep;
+	}
+
 	public Transportadora(){}
 
 	public Long getId() {
